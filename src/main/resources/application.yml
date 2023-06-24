@@ -1,0 +1,76 @@
+# 项目配置
+zhong:
+  address: localhost
+  resource-path: D:/resource-path
+# 服务器配置
+server:
+  port: 8093
+  servlet:
+    context-path: /
+  compression:
+    # 开启gzip 压缩
+    enabled: true
+    mime-types: application/javascript,text/css,application/json,application/xml,text/html,text/xml,text/plain
+# spring 配置
+spring:
+  servlet:
+    multipart:
+      # 关闭默认的multipart
+      enabled: false
+      # 上传文件大小限制
+      max-file-size: 10MB
+      max-request-size: 100MB
+  # 数据源配置
+  datasource:
+    # 使用hikari数据源
+    type: com.zaxxer.hikari.HikariDataSource
+    # 配置mysql驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据库信息
+    url: jdbc:mysql://localhost:3306/exam?characterEncoding=utf-8&useSSL=false&useUnicode=true
+    username: root
+    password: 123456
+  # Redis 配置
+  redis:
+    host: localhost
+    port: 6379
+    # password: 输入 redis 配置
+    lettuce:
+      shutdown-timeout: 100
+# mybatis-plus 配置
+mybatis-plus:
+  configuration:
+    # 使用默认配置的控制台输出日志，不需要导入依赖
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 配置类型别名所对应的包
+  type-aliases-package: com.zhong.pojo
+  # 扫描通用枚举的包
+  type-enums-package: com.zhong.pojo.enums
+#  配置逻辑删除（软删除）填充内容
+#  global-config:
+#    db-config:
+#      logic-delete-value: 1
+#      logic-not-delete-value: 0
+
+
+# 阿里云 oss 配置
+#aliyun:
+#  endpoint: 输入阿里云 oss 配置
+#  accessKeyId: 输入阿里云 oss 配置
+#  accessKeySecret: 输入阿里云 oss 配置
+#  bucket: 输入阿里云 oss 配置
+#  rootPath: 输入阿里云 oss 配置
+
+qiniu:
+  kodo:
+    # 配置accessKey
+    accessKey: u984y0NKrjlaaviRla4YAzf8kxlDGLHNqQPo4df-
+    # 配置secretKey
+    secretKey: ZahAgy7ARziqj8RN4yfvLIGcpBvKdcLM8yQPo7WT
+    # 配置空间名称
+    bucket: redis-test01
+    # 配置域名
+    domain: rvijyb4o1.hn-bkt.clouddn.com
+    # 配置根路径
+    rootPath: /exam
+
